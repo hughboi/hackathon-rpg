@@ -14,19 +14,16 @@
         var img = new Image();
         img.src = 'example.bmp';
 
-        var canvas = new Canvas();
         canvas.width = img.width;
         canvas.height = img.height;
-        canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
-
-
+        var context = document.getElementById('canvas').getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 
         var i;
         var j;
         var size = 80;
         for ( i = 0; i < 100; i++ ){
           for ( j = 0; j < 100; j++ ){
-            var pixelData = canvas.getContext('2d').getImageData( i, j, 1, 1).data;
+            var pixelData = context.data;
             if ( pixelData.R < 200, pixelData.G < 200, pixelData.B < 200 ){
             var square  = new createjs.Shape();
             square.graphics.beginFill("Black").drawRect(0, 0, size, size);

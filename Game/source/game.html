@@ -7,12 +7,15 @@
        var stage = new createjs.Stage("demoCanvas");
        var wall = new createjs.Shape();
        var wall2 = new createjs.Shape();
-       wall.graphics.beginFill("DeepSkyBlue").drawRect(0, 0, 10, 100);
-       wall2.graphics.beginFill("Crimson").drawRect(0, 0, 150, 10);
+       var hero = new createjs.Bitmap("../art/character.png");
+       wall.graphics.beginFill("Black").drawRect(0, 0, 10, 100);
+       hero.drawAsPath();
+       wall2.graphics.beginFill("Brown").drawRect(0, 0, 150, 10);
        wall2.x = 100;
        wall2.y = 100;
        wall.x = 100;
        wall.y = 100;
+       stage.addChild(hero);
        stage.addChild(wall);
        stage.addChild(wall2);
        stage.update();

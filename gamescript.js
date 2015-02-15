@@ -22,7 +22,7 @@ var monsterImage = new Image();
 monsterImage.onload = function(){
 	monsterReady = true;
 };
-monsterImage.src = "Game/art/spider.png"
+monsterImage.src = "Game/art/spider.png";
 
 // Game objects
 var hero = {
@@ -126,8 +126,9 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 
 
 // Start game!
+var then;
 var start = function() {
-	var then = Date.now();
+	then = Date.now();
 	reset();
 	main();
-}
+};

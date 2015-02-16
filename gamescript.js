@@ -1,5 +1,5 @@
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+var canvas;
+var ctx;
 
 
 // Image drawing precautions and loading image files
@@ -74,10 +74,10 @@ var update = function (modifier) {
 
 	// Are they touching?
 	if (
-		hero.x <= (monster.x + 64);
-		&& monster.x <= (hero.x + 64);
-		&& hero.y <= (monster.y + 64);
-		&& monster.y <= (hero.y + 32);
+		hero.x <= (monster.x + 64)
+		&& monster.x <= (hero.x + 64)
+		&& hero.y <= (monster.y + 64)
+		&& monster.y <= (hero.y + 32)
 	) {
 		++monstersCaught;
 		reset();
@@ -128,6 +128,8 @@ requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame
 // Start game!
 var then;
 var start = function() {
+	canvas = document.getElementById("canvas");
+	ctx  = canvas.getContext("2d");
 	then = Date.now();
 	reset();
 	main();

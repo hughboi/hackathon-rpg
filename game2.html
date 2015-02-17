@@ -1,60 +1,12 @@
 <!DOCTPYE HTML>
 <html>
   <head>
-    <script src="https://code.createjs.com/createjs-2014.12.12.min.js"></script>
-    <script>
-
-      function init() {
-        var stage = new createjs.Stage("demoCanvas");
-        var circle = new createjs.Shape();
-        circle.graphics.beginFill("DeepSkyBlue").drawCircle(0, 0, 50);
-        circle.x = 100;
-        circle.y = 100;
-
-        var img = new Image();
-        img.src = 'example.bmp';
-
-        canvas.width = img.width;
-        canvas.height = img.height;
-        var context = document.getElementById('canvas').getContext('2d').drawImage(img, 0, 0, img.width, img.height);
-
-        var i;
-        var j;
-        var size = 80;
-        for ( i = 0; i < 100; i++ ){
-          for ( j = 0; j < 100; j++ ){
-            var pixelData = context.data;
-            var isBlack = false;
-
-            var d;
-            for ( d = 0; d < 3; d++){
-              if ( pixelData[d] > 20 ){
-                break;
-              }
-            }
-
-            if ( d == 3 ){
-              isBlack = true;
-            }
-
-            if ( isBlack ){
-              var square  = new createjs.Shape();
-              square.graphics.beginFill("Black").drawRect(0, 0, size, size);
-              square.x = i*size;
-              square.y = j*size;
-              stage.addChild(square);
-            } 
-          }
-        }
-
-        stage.addChild(circle);
-
-        stage.update();
-
-      }
+    <script src="https://code.createjs.com/createjs-2014.12.12.min.js" defer>
+    </script>
+    <script type="text/javascript" src="setupscript.js" defer> 
     </script>
   </head>
-  <body onload="init();">
+  <body onload="init()">
     <canvas id="demoCanvas" width="10000" height="10000"></canvas>
   </body>
 </html>

@@ -1,4 +1,5 @@
 var setup = function( context, stage ){
+    console.log('Whassup');
     for ( i = 0; i < 100; i++ ){
         for ( j = 0; j < 100; j++ ){
             var pixelData = context.getImageData( i, j, 1, 1 ).data;
@@ -20,6 +21,7 @@ var setup = function( context, stage ){
 		square.graphics.beginFill("Black").drawRect(0, 0, size, size);
 		square.x = i*size;
 		square.y = j*size;
+		console.log( "What now" );
 		stage.addChild(square);
             } 
         }
@@ -27,9 +29,10 @@ var setup = function( context, stage ){
 };
 
 self.onmessage = function(e) {
-    setup( e.data.stage, e.data.canvas );
+    console.log('Entered worker');
+    setup( JSON.parse(e.data.stage), JSON.parse(e.data.canvas) );
 
     self.postMessage ({
-	'stage': e.data.canvas
+	'stage': JSON.stringify(e.data.canvas)
     });
 };

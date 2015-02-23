@@ -15,17 +15,25 @@ init = function() {
 
     var worker = new Worker('game2webworker.js');
     
-    worker.onmessage = function(e){
-	stage = e.data.stage;
+    worker.onMessage = function(e){
+	stage = JSON.parse(e.data.stage);
     };
 
+    console.log('Here?');
+
+    var strcanvas = JSON.stringify(canvas);
+    console.log('Or Here?');
+    // error located here
+    // cant stringify the stage
+    var strstage = JSON.stringify(stage);
+    console.log('Or Even Here?');
     worker.postMessage({
-	'canvas': canvas,
-	'stage': stage
+	'canvas': strcanvas,
+	'stage': strstage
     });
+    console.log('Nope');
 
     console.log("setup complete");    
-    stage.update();
-    
+    stage.update();    
 }
 

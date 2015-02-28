@@ -1,7 +1,6 @@
 var canvas;
 var ctx;
 
-
 // Image drawing precautions and loading image files
 var bgReady = false;
 var bgImage = new Image();

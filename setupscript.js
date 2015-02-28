@@ -19,14 +19,11 @@ init = function() {
 	stage = JSON.parse(e.data.stage);
     };
 
-    console.log('Here?');
-
     var strcanvas = JSON.stringify(canvas);
-    console.log('Or Here?');
     // error located here
     // cant stringify the stage
     var strstage = JSON.stringify(stage);
-    console.log('Or Even Here?');
+    console.log('Here?');
     worker.postMessage({
 	'canvas': strcanvas,
 	'stage': strstage
